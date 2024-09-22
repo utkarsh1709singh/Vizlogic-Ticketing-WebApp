@@ -1,25 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+// src/App.js
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import HomePage from './components/homepage'; // lowercase 'h'
 
-function App() {
+// Placeholder components for the other pages
+const ServiceRequestPage = () => <h1 style={{ textAlign: 'center', marginTop: '50px' }}>Service Request Page</h1>;
+const ProblemManagementPage = () => <h1 style={{ textAlign: 'center', marginTop: '50px' }}>Problem Management Page</h1>;
+const IncidentManagementPage = () => <h1 style={{ textAlign: 'center', marginTop: '50px' }}>Incident Management Page</h1>;
+const ChangeManagementPage = () => <h1 style={{ textAlign: 'center', marginTop: '50px' }}>Change Management Page</h1>;
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/service-request" element={<ServiceRequestPage />} />
+        <Route path="/problem-management" element={<ProblemManagementPage />} />
+        <Route path="/incident-management" element={<IncidentManagementPage />} />
+        <Route path="/change-management" element={<ChangeManagementPage />} />
+      </Routes>
+    </Router>
   );
-}
+};
 
 export default App;
