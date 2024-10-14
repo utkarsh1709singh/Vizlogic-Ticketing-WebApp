@@ -7,24 +7,14 @@ const HomePage = () => {
     <div style={{ textAlign: 'center', marginTop: '50px' }}>
       <h1>Welcome to the Ticketing App</h1>
       <div style={{ marginTop: '40px' }}>
-        <Link to="/service-request">
+        <Link to="/submit-ticket">
           <button style={{ padding: '15px 30px', fontSize: '16px', margin: '10px' }}>
-            Service Request
+            Submit Ticket
           </button>
         </Link>
-        <Link to="/problem-management">
+        <Link to="/view-tickets">
           <button style={{ padding: '15px 30px', fontSize: '16px', margin: '10px' }}>
-            Problem Management
-          </button>
-        </Link>
-        <Link to="/incident-management">
-          <button style={{ padding: '15px 30px', fontSize: '16px', margin: '10px' }}>
-            Incident Management
-          </button>
-        </Link>
-        <Link to="/change-management">
-          <button style={{ padding: '15px 30px', fontSize: '16px', margin: '10px' }}>
-            Change Management
+            View Tickets
           </button>
         </Link>
       </div>
@@ -33,3 +23,4 @@ const HomePage = () => {
 };
 
 export default HomePage;
+
