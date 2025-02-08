@@ -1,0 +1,29 @@
+version: "3.8"
+
+services:
+  mongo:
+    image: mongo:latest
+    container_name: mongo_container
+    restart: always
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: password
+    volumes:
+      - mongo_data:/data/db
+
+  ticketing-app:
+    build: .
+    container_name: ticketing_app
+    restart: always
+    depends_on:
+      - mongo
+    environment:
+      MONGO_URI: mongodb://admin:password@mongo:27017/ticketingdb
+      JWT_SECRET: mysecretkey
+    ports:
+      - "3000:3000"
+
+volumes:
+  mongo_data:
